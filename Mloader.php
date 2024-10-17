@@ -9,8 +9,13 @@ class Mloader
 
 	public static function get($module_name)
 	{
-		$custom_class = self::$custom_namespace . $module_name . '\\' . $module_name;
-		$common_class = self::$common_namespace . $module_name . '\\' . $module_name;
+        $namespace = $module_name;
+        if ( $module_name === 'Request' || $module_name === 'Response' ) {
+            $namespace = 'Http';
+
+        }
+        $custom_class = self::$custom_namespace . $namespace . '\\' . $module_name;
+        $common_class = self::$common_namespace . $namespace . '\\' . $module_name;
 
 		if ( class_exists($custom_class) )
 		{
