@@ -10,10 +10,16 @@ class Mloader
 	public static function get($module_name)
 	{
         $namespace = $module_name;
-        if ( $module_name === 'Request' || $module_name === 'Response' ) {
-            $namespace = 'Http';
 
+        // Check if the module name contains a Namespace, get it
+        if (strpos($module_name, '\\') !== false) {
+            $module_name_arr = explode('\\', $module_name);
+            if ( count ($module_name_arr) === 2 ) {
+                $namespace = $module_name_arr[0];
+                $module_name = $module_name_arr[1];
+            }
         }
+
         $custom_class = self::$custom_namespace . $namespace . '\\' . $module_name;
         $common_class = self::$common_namespace . $namespace . '\\' . $module_name;
 
