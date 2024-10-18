@@ -20,11 +20,11 @@ class Mloader
      * @throws \InvalidArgumentException If the module is not found or if the custom module is not a subclass of the common module.
      *
      * @example
-     * // Retrieve a simple class
+     * // Retrieve a class from standard namespace \Cleantalk\Common\SimpleClass\SimpleClass or \Cleantalk\Custom\SimpleClass\SimpleClass
      * $class = Mloader::get('SimpleClass');
      *
      * @example
-     * // Retrieve a class with namespace
+     * // Retrieve a class from provided namespace \Cleantalk\Common\Namespace\Class or \Cleantalk\Custom\Namespace\Class
      * $class = Mloader::get('Namespace\Class');
      */
 	public static function get($module_name)
