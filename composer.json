@@ -9,7 +9,7 @@
   ],
   "autoload": {
     "psr-4": {
-      "Cleantalk\\Common\\Helper\\": "/"
+      "Cleantalk\\Common\\Mloader\\": "/"
     }
   },
   "license": "GPL-3.0-or-later"
